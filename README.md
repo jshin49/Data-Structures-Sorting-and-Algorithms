@@ -19,12 +19,12 @@ The rest are implemented with vector<int> which is typedefined as Array.
  - Graphs
 
 # Sorting
- - Naive Sorting
-  - Insertion sort
-  - Selection sort
-  - Bubble sort
 - Merge sort
 - Quick sort
 - Heap sort
 - Counting sort
 - Bucket sort
+ - Naive Sorting
+  - Insertion sort
+  - Selection sort
+  - Bubble sort
