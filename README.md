@@ -24,7 +24,7 @@ The rest are implemented with vector<int> which is typedefined as Array.
 - Heap sort
 - Counting sort
 - Bucket sort
- - Naive Sorting
+- Naive Sorting
   - Insertion sort
   - Selection sort
   - Bubble sort
