@@ -1,1 +1,1 @@
-# Datastructures-and-Sorting
+# Data-Structures-and-Sorting
