@@ -122,7 +122,9 @@ public:
 		SingleLinkedList res;
 
 		while (cur != nil) {
-			if (cur)
+			if (cur->elem() == elem)
+				res.push_back(elem);
+			cur = cur->next();
 		}
 
 		return res;
@@ -144,6 +146,11 @@ public:
 		// General case (in middle)
 		else {
 			Node* prev = search_prev_node(pos);
+			Node* cur = new Node;
+			cur->set_elem(elem);
+			cur->set_next(prev->next());
+			prev->set_next(cur);
+			++size_m;
 		}
 	}
 
@@ -151,13 +158,14 @@ public:
 	* \brief Pushes elem to the back
 	*/
 	void push_back(int elem) {
-
+		++size_m;
 	}
 	
 	/**
 	* \brief Pushes elem to the front
 	*/
 	void push_front(int elem) {
+		++size_m;
 
 	}
 
@@ -165,6 +173,7 @@ public:
 	* \brief Pops the head
 	*/
 	int pop_back() {
+		--size_m;
 
 	}
 
@@ -172,6 +181,7 @@ public:
 	* \brief Pops the head
 	*/
 	int pop_front() {
+		--size_m;
 
 	}
 
@@ -179,8 +189,26 @@ public:
 	* \brief Gets the previous node of position via search_node, and deletes elem
 	*/
 	void delete_elem(int pos) {
-		Node* prev = search_prev_node(pos);
+		// Empty list
+		if (size_m == 0) cerr << "ERROR: Empty List" << endl;
 
+		// One element list
+		else if (size_m == 1) delete head_m;
+
+		// At the head
+		else if (pos == 1) pop_front();
+
+		// At the end
+		else if (pos == size_m) pop_back();
+
+		// General case (in middle)
+		else {
+			Node* prev = search_prev_node(pos);
+			Node* cur = prev->next();
+			prev->set_next(cur->next());
+			delete cur;
+			--size_m;
+		}
 	}
 
 	void delete_list() { this->~SingleLinkedList(); }
@@ -188,10 +216,10 @@ public:
 	void print_list(std::ostream& os = std::cout) {
 		Node* cur = head_m;
 		while (cur != nil) {
-			os << cur->elem() << " , ";
+			os << cur->elem() << " -> ";
 			cur = cur->next();
 		}
-		os << endl;
+		os << "nil" << endl;
 	}
 
 private:
