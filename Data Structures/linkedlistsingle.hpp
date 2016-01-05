@@ -223,9 +223,9 @@ public:
 	* \brief Pops the tail
 	*/
 	int pop_back() {
-		Node* prevtail = search_prev_node(size_m);
-		Node* tail = prevtail->next();
-		prevtail->set_next(nil);
+		Node* new_tail = search_prev_node(size_m);
+		Node* tail = new_tail->next();
+		new_tail->set_next(nil);
 		int res = tail->elem();
 		delete tail;
 		--size_m;

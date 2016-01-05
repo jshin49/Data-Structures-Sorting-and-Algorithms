@@ -87,6 +87,28 @@ int main() {
 	cout << "Insert at tail 10 and print: " << endl;
 	dlist.insert_elem(10, dlist.size());
 	dlist.print_list();
+	cout << "Pop front and print: " << endl;
+	dlist.pop_front();
+	dlist.print_list();
+	cout << "Delete at head and print: " << endl;
+	dlist.delete_elem(1);
+	dlist.print_list();
+	cout << "Pop back and print: " << endl;
+	dlist.pop_back();
+	dlist.print_list();
+	cout << "Delete at tail and print: " << endl;
+	dlist.delete_elem(dlist.size());
+	dlist.print_list();
+	cout << "Delete all and print: " << endl;
+	dlist.delete_list();
+	dlist.print_list();
+	cout << "Delete an one element list and print: " << endl;
+	DoubleLinkedList dlist1(1);
+	dlist1.print_list();
+	dlist1.delete_elem();
+	dlist1.print_list();
+	cout << "Delete an empty list: " << endl;
+	dlist1.delete_elem();
 
 	cout << endl;
 

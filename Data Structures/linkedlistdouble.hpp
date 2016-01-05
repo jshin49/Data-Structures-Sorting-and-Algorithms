@@ -125,7 +125,6 @@ public:
 			delete temp;
 		}
 		size_m = 0;
-		delete nil;
 	}
 
 	/**
@@ -199,7 +198,9 @@ public:
 	/**
 	* \brief Deletes the entire list
 	*/
-	void delete_list() { this->~DoubleLinkedList(); }
+	void delete_list() {
+		this->~DoubleLinkedList();
+		if (head_m != NULL) delete head_m;}
 
 	/**
 	* \brief Pushes elem to the front
@@ -237,11 +238,14 @@ public:
 
 		else {
 			Node* new_head = head_m->next();
+			nil->set_next(new_head);
+			new_head->set_prev(nil);
 			delete head_m;
 			head_m = new_head;
 		}
 
 		--size_m;
+
 		return res;
 	}
 
@@ -249,12 +253,16 @@ public:
 	* \brief Pops the tail
 	*/
 	int pop_back() {
-		Node* prevtail = search_node(size_m);
-		Node* tail = prevtail->next();
-		prevtail->set_next(nil);
+		Node* tail = nil->prev();
+		Node* new_tail = tail->prev();
 		int res = tail->elem();
+
+		nil->set_prev(new_tail);
+		new_tail->set_next(nil);
+
 		delete tail;
 		--size_m;
+
 		return res;
 	}
 
