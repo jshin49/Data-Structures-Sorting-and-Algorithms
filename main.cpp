@@ -73,6 +73,22 @@ int main() {
 	// Double Linked List Test
 	cout << "Double Linked List Tests" << endl;
 	cout << "Initialization and print: " << endl;
+	DoubleLinkedList dlist(test);
+	dlist.print_list();
+	cout << "Push front 0 and print: " << endl;
+	dlist.push_front(0);
+	dlist.print_list();
+	cout << "Insert at head 1 and print: " << endl;
+	dlist.insert_elem(1, 1);
+	dlist.print_list();
+	cout << "Push back 10 and print: " << endl;
+	dlist.push_back(10);
+	dlist.print_list();
+	cout << "Insert at tail 10 and print: " << endl;
+	dlist.insert_elem(10, dlist.size());
+	dlist.print_list();
+
+	cout << endl;
 
 	// Heap Test
 	cout << "Heap Tests" << endl;

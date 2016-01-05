@@ -11,6 +11,11 @@ class SingleLinkedList {
 
 	class Node {
 	public:
+		//Constructors
+		Node(){}
+		Node(Node* next) : next_m(next){}
+		Node(int elem, Node* next) : elem_m(elem), next_m(next){}
+
 		// Getter
 		Node* next() { return next_m; }
 		int elem() { return elem_m; }
@@ -33,8 +38,7 @@ public:
 	* \brief Default Constructor - Empty list
 	*/
 	SingleLinkedList() { 
-		head_m = new Node;
-		head_m->set_next(nil);
+		head_m = new Node(nil);
 		size_m = 0;
 	}
 
@@ -42,9 +46,7 @@ public:
 	* \brief Construct with one head.
 	*/
 	SingleLinkedList(int elem) {
-		head_m = new Node;
-		head_m->set_elem(elem);
-		head_m->set_next(nil);
+		head_m = new Node(elem, nil);
 		size_m = 1;
 	}
 
@@ -52,8 +54,8 @@ public:
 	* \brief Constructs a list from a given input array
 	*/
 	SingleLinkedList(int vec[], int size) {
-		Node* cur = new Node;
-		head_m = cur;
+		head_m = new Node;
+		Node* cur = head_m;
 		size_m = size;
 		for (int i = 0; i < size; ++i) {
 			cur->set_elem(vec[i]);
@@ -70,8 +72,8 @@ public:
 	* \brief Constructs a list from a given input vector
 	*/
 	SingleLinkedList(vector<int>& vec) {
-		Node* cur = new Node;
-		head_m = cur;
+		head_m = new Node;
+		Node* cur = head_m;
 		size_m = vec.size();
 		for (int i = 0; i < vec.size(); ++i) {
 			cur->set_elem(vec[i]);
@@ -113,6 +115,12 @@ public:
 
 		return pos;
 	}
+
+	/**
+	* \brief Searches iteratively for the given position
+	* \return The elem of that position
+	*/
+	int search_pos(int pos) { return search_node(pos)->elem(); }
 
 	/**
 	* \brief Inserts elem at pos
