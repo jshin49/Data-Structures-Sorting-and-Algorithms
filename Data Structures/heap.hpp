@@ -125,7 +125,16 @@ public:
 		return arr_m;
 	}
 
-	
+	void print_heap(std::ostream& os = std::cout) {
+		if (size_m == 0) {
+			os << "ERROR: Empty Heap" << endl;
+			return;
+		}
+		for (int i = 0; i < size_m; ++i)
+			os << arr_m[i] << " ";
+		os << endl;
+	}
+
 private:
 	// Members
 	Array arr_m;

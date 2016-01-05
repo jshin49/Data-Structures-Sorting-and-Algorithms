@@ -2,6 +2,7 @@
 #include <vector>
 #include <fstream>
 #include "linkedlistsingle.hpp"
+#include "linkedlistdouble.hpp"
 #include "heap.hpp"
 #include "heapsort.hpp"
 
@@ -27,8 +28,8 @@ int main() {
 	vector<int> test3 = { 12, 8, 5, 6, 7, 1, 0, 4, 1, 3 };
 	vector<int> test4 = { 9, 8, 5, 6, 7, 1, 0, 4, 1, 3 };
 
-	// List Test
-	cout << "List Tests" << endl;
+	// Single Linked List Test
+	cout << "Single Linked List Tests" << endl;
 	cout << "Initialization and print: " << endl;
 	SingleLinkedList slist(test);
 	slist.print_list();
@@ -69,12 +70,28 @@ int main() {
 
 	cout << endl;
 
+	// Double Linked List Test
+	cout << "Double Linked List Tests" << endl;
+	cout << "Initialization and print: " << endl;
+
 	// Heap Test
 	cout << "Heap Tests" << endl;
+	cout << "Initialization and print: " << endl;
 	Heap heap3(test3);
+	heap3.print_heap();
+	cout << "Insert 10 and print: " << endl;
 	heap3.insert(10);
+	heap3.print_heap();
+	cout << "Initialization and print: " << endl;
 	Heap heap4(test4);
+	heap4.print_heap();
+	cout << "Pop max and print: " << endl;
 	int heap4max = heap4.pop_max();
+	heap4.print_heap();
+	cout << "max: " << heap4max << endl;
+	cout << "Heapsort and print: " << endl;
+	heap4.sort();
+	heap4.print_heap();
 	cout << endl;
 
 	// Sorting Test
