@@ -32,10 +32,41 @@ int main() {
 	cout << "Initialization and print: " << endl;
 	SingleLinkedList slist(test);
 	slist.print_list();
-	cout << endl;
+	cout << "Push front 0 and print: " << endl;
+	slist.push_front(0);
+	slist.print_list();
+	cout << "Insert at head 1 and print: " << endl;
+	slist.insert_elem(1, 1);
+	slist.print_list();
+	cout << "Push back 10 and print: " << endl;
+	slist.push_back(10);
+	slist.print_list();
+	cout << "Insert at tail 10 and print: " << endl;
+	slist.insert_elem(10,slist.size());
+	slist.print_list();
+	cout << "Pop front and print: " << endl;
+	slist.pop_front();
+	slist.print_list();
+	cout << "Delete at head and print: " << endl;
+	slist.delete_elem(1);
+	slist.print_list();
+	cout << "Pop back and print: " << endl;
+	slist.pop_back();
+	slist.print_list();
+	cout << "Delete at tail and print: " << endl;
+	slist.delete_elem(slist.size());
+	slist.print_list();
 	cout << "Delete all and print: " << endl;
 	slist.delete_list();
 	slist.print_list();
+	cout << "Delete an one element list and print: " << endl;
+	SingleLinkedList slist1(1);
+	slist1.print_list();
+	slist1.delete_elem();
+	slist1.print_list();
+	cout << "Delete an empty list: " << endl;
+	slist1.delete_elem();
+
 	cout << endl;
 
 	// Heap Test

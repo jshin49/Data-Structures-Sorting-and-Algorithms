@@ -30,7 +30,7 @@ class SingleLinkedList {
 public:
 
 	/**
-	* \brief Default constructor with new Head.
+	* \brief Default Constructor - Empty list
 	*/
 	SingleLinkedList() { 
 		head_m = new Node;
@@ -39,7 +39,7 @@ public:
 	}
 
 	/**
-	* \brief Constructor with one head.
+	* \brief Construct with one head.
 	*/
 	SingleLinkedList(int elem) {
 		head_m = new Node;
@@ -85,7 +85,7 @@ public:
 	}
 
 	/**
-	* \brief Destructs the entire list
+	* \brief Destroys the entire list
 	*/
 	~SingleLinkedList() {
 		while (head_m != nil) {
@@ -93,6 +93,7 @@ public:
 			head_m = head_m->next();
 			delete temp;
 		}
+		size_m = 0;
 	}
 
 	// Search, Insert, Delete
@@ -114,24 +115,7 @@ public:
 	}
 
 	/**
-	* \brief Searches iteratively for all nodes with the given elem
-	* \return The list of those node
-	*/
-	SingleLinkedList search_all(int elem) {
-		Node* cur = head_m;
-		SingleLinkedList res;
-
-		while (cur != nil) {
-			if (cur->elem() == elem)
-				res.push_back(elem);
-			cur = cur->next();
-		}
-
-		return res;
-	}
-
-	/**
-	* \brief Gets the previous node of position via search_node, and inserts elem
+	* \brief Inserts elem at pos
 	*/
 	void insert_elem(int elem, int pos) {
 		// Empty list
@@ -155,45 +139,11 @@ public:
 	}
 
 	/**
-	* \brief Pushes elem to the back
-	*/
-	void push_back(int elem) {
-		++size_m;
-	}
-	
-	/**
-	* \brief Pushes elem to the front
-	*/
-	void push_front(int elem) {
-		++size_m;
-
-	}
-
-	/**
-	* \brief Pops the head
-	*/
-	int pop_back() {
-		--size_m;
-
-	}
-
-	/**
-	* \brief Pops the head
-	*/
-	int pop_front() {
-		--size_m;
-
-	}
-
-	/**
 	* \brief Gets the previous node of position via search_node, and deletes elem
 	*/
-	void delete_elem(int pos) {
+	void delete_elem(int pos = 1) {
 		// Empty list
 		if (size_m == 0) cerr << "ERROR: Empty List" << endl;
-
-		// One element list
-		else if (size_m == 1) delete head_m;
 
 		// At the head
 		else if (pos == 1) pop_front();
@@ -211,8 +161,72 @@ public:
 		}
 	}
 
+	/**
+	* \brief Deletes the entire list
+	*/
 	void delete_list() { this->~SingleLinkedList(); }
 
+	/**
+	* \brief Pushes elem to the front
+	*/
+	void push_front(int elem) {
+		++size_m;
+		Node* new_head = new Node;
+		new_head->set_elem(elem);
+		new_head->set_next(head_m);
+		head_m = new_head;
+	}
+
+	/**
+	* \brief Pushes elem to the back
+	*/
+	void push_back(int elem) {
+		Node* tail = search_node(size_m);
+		Node* new_tail = new Node;
+		new_tail->set_elem(elem);
+		new_tail->set_next(nil);
+		tail->set_next(new_tail);
+		++size_m;
+	}	
+
+	/**
+	* \brief Pops the head
+	*/
+	int pop_front() {
+		int res = head_m->elem();
+
+		// One element list
+		if (size_m == 1) {
+			delete head_m;
+			head_m = nil;
+		}
+
+		else {
+			Node* new_head = head_m->next();
+			delete head_m;
+			head_m = new_head;
+		}
+
+		--size_m;
+		return res;
+	}
+
+	/**
+	* \brief Pops the tail
+	*/
+	int pop_back() {
+		Node* prevtail = search_prev_node(size_m);
+		Node* tail = prevtail->next();
+		prevtail->set_next(nil);
+		int res = tail->elem();
+		delete tail;
+		--size_m;
+		return res;
+	}
+
+	/**
+	* \brief Iteratively prints the list. Print nil if empty or end of list
+	*/
 	void print_list(std::ostream& os = std::cout) {
 		Node* cur = head_m;
 		while (cur != nil) {
@@ -221,6 +235,17 @@ public:
 		}
 		os << "nil" << endl;
 	}
+
+	/**
+	* \brief Get list size
+	*/
+	int size() { return size_m; }
+
+	/**
+	* \brief Get head element
+	*/
+	int head() { return head_m->elem(); }
+
 
 private:
 	// Members
