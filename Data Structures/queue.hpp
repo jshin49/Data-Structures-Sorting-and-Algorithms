@@ -23,6 +23,7 @@ class Queue {
 		void set_elem(int elem) { elem_m = elem; }
 
 	private:
+		// Members
 		Node* next_m;
 		int elem_m;
 	};
@@ -32,6 +33,12 @@ class Queue {
 
 public:
 	// Constructors
+	Queue() {
+		head_m = new Node;
+		size_m = 0;
+	}
+	Queue(vector<int>& vec) {}
+	~Queue() {}
 
 	// Insert
 
@@ -40,6 +47,7 @@ public:
 	// is_empty
 
 private:
+	// Members
 	Node* head_m;
 	int size_m;
 
