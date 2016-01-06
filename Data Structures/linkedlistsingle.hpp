@@ -78,7 +78,7 @@ public:
 		for (int i = 0; i < vec.size(); ++i) {
 			cur->set_elem(vec[i]);
 			if (i == vec.size() - 1)
-				cur->set_next(nil);
+				cur->set_next(nil); // end of list
 			else {
 				cur->set_next(new Node);
 				cur = cur->next();
@@ -87,7 +87,7 @@ public:
 	}
 
 	/**
-	* \brief Destroys the entire list
+	* \brief Destructor
 	*/
 	~SingleLinkedList() {
 		while (head_m != nil) {

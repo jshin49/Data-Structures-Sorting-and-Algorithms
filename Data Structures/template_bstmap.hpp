@@ -66,8 +66,8 @@ public:
 	public:
 		typedef _T									 value_type;
 		typedef int									 difference_type;
-		typedef value_type*					 pointer;
-		typedef value_type&					 reference;
+		typedef value_type*						 pointer;
+		typedef value_type&						 reference;
 
 		Node* node_m;
 

@@ -18,15 +18,15 @@ using namespace std;
 template <class Key, class T>
 class hashtablemap
 {
-	typedef hashtablemap<Key, T>     Self;
+	typedef hashtablemap<Key, T>					 Self;
 
 public:
-	typedef Key										 key_type;
-	typedef T						 				 data_type;
-	typedef T										 mapped_type;
-	typedef pair<Key, T>							 value_type;
-	typedef unsigned int							 size_type;
-	typedef int										 difference_type;
+	typedef Key											 key_type;
+	typedef T						 					 data_type;
+	typedef T											 mapped_type;
+	typedef pair<Key, T>								 value_type;
+	typedef unsigned int								 size_type;
+	typedef int											 difference_type;
 	typedef list<value_type>						 list_type;
 	typedef vector<list<value_type>>				 table_type;
 
@@ -41,10 +41,10 @@ public:
 		friend class hashtablemap;
 
 	public:
-		typedef _T									 value_type;
-		typedef int									 difference_type;
-		typedef value_type*					 pointer;
-		typedef value_type&					 reference;
+		typedef _T										value_type;
+		typedef int										difference_type;
+		typedef value_type*							pointer;
+		typedef value_type&							reference;
 
 		typedef typename list_type::iterator	list_iterator;
 

@@ -131,12 +131,57 @@ int main() {
 	cout << "Heapsort and print: " << endl;
 	heap4.sort();
 	heap4.print_heap();
+
 	cout << endl;
 
 	// Queue Test
+	cout << "Queue Tests" << endl;
+	cout << "Initialization and print: " << endl;
+	Queue queue(test);
+	queue.print_queue();
+	cout << "Enqueue 10 and print: " << endl;
+	queue.enqueue(10);
+	queue.print_queue();
+	cout << "Dequeue and print: " << endl;
+	cout << "Dequeued: " << queue.dequeue() << endl;
+	queue.print_queue();
+	cout << "Search the 3rd element in the queue: " << endl;
+	cout << queue.search(3) << endl;
+	cout << "Is the queue empty?" << endl; 
+	cout << boolalpha << queue.is_empty() << endl;
+	cout << "Delete the queue and print: " << endl;
+	queue.delete_queue();
+	queue.print_queue();
+	cout << "Is the queue empty?" << endl;
+	cout << boolalpha << queue.is_empty() << endl;
+
+	cout << endl;
+
+	// Stack Test
+	cout << "Stack Tests" << endl;
+	cout << "Initialization and print: " << endl;
+
+	cout << endl;
+
+	// BST Test
+	cout << "BST Tests" << endl;
+	cout << "Initialization and print: " << endl;
+
+	cout << endl;
+
+	// Hashmap Test
+	cout << "Hashmap Tests" << endl;
+	cout << "Initialization and print: " << endl;
+
+	cout << endl;
 
 	// Sorting Test
 	cout << "Sorting Tests" << endl;
+	cout << "Initialization and print: " << endl;
+
+	cout << "Naive Sorts: " << endl;
+
+	cout << "Initialization and print: " << endl;
 	//heapsort(vec2);
 	//heapsort_desc(test);
 	//heapsort_desc(test2);

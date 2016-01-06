@@ -11,7 +11,7 @@ class DoubleLinkedList {
 
 	class Node {
 	public:
-		//Constructors
+		// Constructors
 		Node(){}
 		Node(int elem, Node* prev, Node* next) : elem_m(elem), prev_m(prev), next_m(next){}
 
@@ -116,7 +116,7 @@ public:
 	}
 
 	/**
-	* \brief Destroys the entire list
+	* \brief Destructor
 	*/
 	~DoubleLinkedList() {
 		while (head_m != nil) {
