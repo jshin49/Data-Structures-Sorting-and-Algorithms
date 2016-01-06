@@ -6,6 +6,7 @@
 #include "heap.hpp"
 #include "heapsort.hpp"
 #include "queue.hpp"
+#include "stack.hpp"
 
 using namespace std;
 
@@ -160,6 +161,23 @@ int main() {
 	// Stack Test
 	cout << "Stack Tests" << endl;
 	cout << "Initialization and print: " << endl;
+	Stack stack(test);
+	stack.print_stack();
+	cout << "Push 10 and print: " << endl;
+	stack.push(10);
+	stack.print_stack();
+	cout << "Pop and print: " << endl;
+	cout << "Popped: " << stack.pop() << endl;
+	stack.print_stack();
+	cout << "Search the 3rd element in the stack: " << endl;
+	cout << stack.search(3) << endl;
+	cout << "Is the stack empty?" << endl;
+	cout << boolalpha << stack.is_empty() << endl;
+	cout << "Delete the stack and print: " << endl;
+	stack.delete_stack();
+	stack.print_stack();
+	cout << "Is the stack empty?" << endl;
+	cout << boolalpha << stack.is_empty() << endl;
 
 	cout << endl;
 

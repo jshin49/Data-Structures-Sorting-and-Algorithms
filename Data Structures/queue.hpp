@@ -5,6 +5,8 @@
 #include <vector>
 #include <algorithm>
 
+using namespace std;
+
 class Queue {
 
 	class Node {
@@ -64,7 +66,7 @@ public:
 	}
 
 	/**
-	* \brief Constructs a list from a given input array
+	* \brief Constructs a queue from a given input array
 	*/
 	Queue(int vec[], int size) {
 		head_m = new Node;
@@ -90,7 +92,7 @@ public:
 	}
 
 	/**
-	* \brief Constructs a list from a given input vector
+	* \brief Constructs a queue from a given input vector
 	*/
 	Queue(vector<int>& vec) {
 		head_m = new Node;
@@ -132,6 +134,7 @@ public:
 		Node* new_tail = new Node(elem, tail, nil);
 		tail->set_next(new_tail);
 		nil->set_prev(new_tail);
+		++size_m;
 	}
 
 	/**
@@ -144,6 +147,7 @@ public:
 		new_head->set_prev(nil);
 		delete head_m;
 		head_m = new_head;
+		--size_m;
 		return res;
 	}
 
@@ -167,7 +171,7 @@ public:
 	bool is_empty() { return size_m == 0; }
 
 	/**
-	* \brief Iteratively prints the list. Print nil if empty or end of list
+	* \brief Iteratively prints the queue. Print nil if empty or end of queue
 	*/
 	void print_queue(std::ostream& os = std::cout) {
 		Node* cur = head_m;
