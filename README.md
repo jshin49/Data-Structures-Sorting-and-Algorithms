@@ -13,7 +13,7 @@ The rest are implemented with vector<int> which is typedefined as Array.
  - Singly/Doubly Linked Lists
  - Stacks
  - Queues
- - Heaps
+ - Heaps (With Priority Queue Interface included)
  - Binary Search Trees
  - Hash Maps
  - Graphs
