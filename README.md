@@ -16,25 +16,26 @@ The italicized ones are under construction.
 
 # Data Structures
  - **Singly/Doubly Linked Lists**
- - Stacks
- - *Queues*
+ - **Stacks**
+ - **Queues**
  - **Heaps (With Priority Queue Interface included)**
- - **Binary Search Trees**
- - **Hash Maps**
+ - **Binary Search Trees (Generic)**
+ - Optimal Binary Search Trees
+ - **Hash Maps (Generic)**
  - Disjoint Sets
  - Graphs
 
 # Sorting
-- Merge sort
-- Quick sort
+- *Merge sort*
+- *Quick sort*
 - **Heap sort**
 - Counting sort
 - Bucket sort
 - Topological sort
-- Naive Sorting
-  - Insertion sort
-  - Selection sort
-  - Bubble sort
+- *Naive Sorting*
+  - *Insertion sort*
+  - *Selection sort*
+  - *Bubble sort*
 
 # Algorithms
  - Counting Inversions
