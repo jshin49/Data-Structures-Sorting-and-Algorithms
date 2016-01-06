@@ -5,6 +5,7 @@
 #include "linkedlistdouble.hpp"
 #include "heap.hpp"
 #include "heapsort.hpp"
+#include "queue.hpp"
 
 using namespace std;
 
@@ -131,6 +132,8 @@ int main() {
 	heap4.sort();
 	heap4.print_heap();
 	cout << endl;
+
+	// Queue Test
 
 	// Sorting Test
 	cout << "Sorting Tests" << endl;
