@@ -1,6 +1,6 @@
 #pragma once
-#ifndef HASHTABLEMAP_HPP
-#define HASHTABLEMAP_HPP
+#ifndef TEMPLATE_HASHTABLEMAP_HPP
+#define TEMPLATE_HASHTABLEMAP_HPP
 
 #include <list> // table type for collision
 #include <vector> // table creation
@@ -267,4 +267,4 @@ private:
 		return begin;
 	}
 };
-#endif /* HASHTABLEMAP_HPP */
+#endif /* TEMPLATE_HASHTABLEMAP_HPP */

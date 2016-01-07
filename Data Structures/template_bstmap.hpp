@@ -1,6 +1,6 @@
 #pragma once
-#ifndef BSTMAP_HPP
-#define BSTMAP_HPP
+#ifndef TEMPLATE_BSTMAP_HPP
+#define TEMPLATE_BSTMAP_HPP
 
 #include <utility>
 #include <cstddef>
@@ -119,7 +119,7 @@ public:
 		if (this == &x)
 			return *this;
 		clear(); // clear original map and replace
-		for (const_iterator i = x.begin(); i != x.end(); i++)
+		for (const_iterator i = x.begin(); i != x.end(); ++i)
 			insert(*i);
 	}
 
@@ -132,16 +132,14 @@ public:
 	}
 	iterator end() {
 		if (empty()) return begin();
-		else				 return iterator(NULL);
+		else			 return iterator(NULL);
 	}
 	const_iterator end() const {
 		if (empty()) return begin();
-		else				 return const_iterator(NULL);
+		else			 return const_iterator(NULL);
 	}
 	bool empty() const { return root_m == NULL; }
-	size_type size() const {
-		return _size(root_m);
-	}
+	size_type size() const { return _size(root_m); }
 
 	// insert/erase
 	/**
@@ -159,27 +157,23 @@ public:
 		}
 		else {
 			Node* new_node = new Node(x, res.first);
-			if (x.first < (res.first->value_m).first) {
+			if (x.first < (res.first->value_m).first) 
 				res.first->left_m = new_node;
-			}
-			else {
+			else 
 				res.first->right_m = new_node;
-			}
 			return make_pair(iterator(new_node), true);
 		}
 	}
 	void erase(iterator pos) { // erase by iterator position
-		if (pos == NULL) {
+		if (pos == NULL)
 			throw runtime_error("Cannot erase at a NULL position");
-		}
 
 		Node* n = pos.node_m;
 		Node* parent = n->parent_m;
 		Node* left = n->left_m;
 		Node* right = n->right_m;
-		if (n == NULL) {
-			return;
-		}
+		if (n == NULL) return;
+
 		// Case 3: x has 2 childs
 		if (n->left_m != NULL && n->right_m != NULL) {
 			Node* _successor = successor(n);
@@ -193,32 +187,27 @@ public:
 		}
 		// Case 1: x is a leaf
 		else if (n->left_m == NULL && n->right_m == NULL) {
-			if (parent->left_m == n) {
+			if (parent->left_m == n) 
 				parent->left_m = NULL;
-			}
-			else {
+			else 
 				parent->right_m = NULL;
-			}
+
 			delete n;
 		}
 		// Case 2: x has exactly one child
 		else {
 			Node* child = n->left_m;
-			if (child == NULL) {
+			if (child == NULL) 
 				child = n->right_m;
-			}
 
 			// special case: deleting root
-			if (n == root_m) {
+			if (n == root_m) 
 				root_m = child; // move the root to the child
-			}
 			else {
-				if (n == parent->left_m) {
+				if (n == parent->left_m)
 					parent->left_m = child;
-				}
-				else {
+				else
 					parent->right_m = child;
-				}
 			}
 			child->parent_m = parent;
 			delete n;
@@ -227,9 +216,9 @@ public:
 	}
 	size_type erase(const Key& x) {
 		iterator it = find(x);
-		if (it == end()) { // Key not found
+		if (it == end()) // Key not found
 			throw runtime_error("Cannot erase a nonexistent key");
-		}
+
 		erase(it);
 		return 1; // since Key in maps are unique, can only be 1
 	} // erase by key
@@ -239,9 +228,8 @@ public:
 	}
 	T& operator[](const key_type& k) {
 		iterator it = find(k);		
-		if (it != end()) {   // found key
+		if (it != end())     // found key
 			return (*it).second;
-		}
 		else {               // not found -> create empty node
 			insert(value_type(k, NULL));
 			return operator[](k);
@@ -251,25 +239,22 @@ public:
 	// map operations:
 	iterator find(const key_type& x) {
 		pair<Node*, bool> res = _find(x, root_m);
-		if (res.second) { // found key
+		if (res.second) // found key
 			return iterator(res.first);
-		}
 		return end();
 	}
 	const_iterator find(const key_type& x) const {
 		pair<Node*, bool> res = _find(x, root_m);
-		if (res.second) { // found key
+		if (res.second) // found key
 			return const_iterator(res.first);
-		}
 		return end(); // return end if find fails
 	}
 
 	// since every key in the map is unique,
   // if the element is found return 1, otherwise return 0
 	size_type count(const Key& x) const {
-		if (find(x) != end()) {
+		if (find(x) != end())
 			return 1;
-		}
 		return 0;
 	}
 
@@ -279,18 +264,14 @@ private:
 	*\return bool true if found
 	*/
 	pair<Node*, bool> _find(const key_type& key, Node* subtree, Node* parent = NULL) const {
-		if (subtree == NULL) {
+		if (subtree == NULL) 
 			return pair<Node*, bool>(parent, false);
-		}
-		if (subtree->value_m.first == key) {
+		if (subtree->value_m.first == key)
 			return pair<Node*, bool>(subtree, true);
-		}
-		else if (subtree->value_m.first > key) {
+		else if (subtree->value_m.first > key)
 			return _find(key, subtree->left_m, subtree);
-		}
-		else {
+		else
 			return _find(key, subtree->right_m, subtree);
-		}
 	}
 
 // helper functions
@@ -326,9 +307,7 @@ private:
 		return pos_p; // if left child, return parent
 	}	
 	static void _clear(Node* n) {
-		if (n == NULL) {
-			return;
-		}
+		if (n == NULL)	return;
 
 		_clear(n->right_m);
 		_clear(n->left_m);
@@ -337,11 +316,9 @@ private:
 		n = NULL;
 	}
 	static size_type _size(Node* n) {
-		if (n == NULL) {
-			return 0;
-		}
+		if (n == NULL) return 0;
 		return 1 + _size(n->left_m) + _size(n->right_m);
 	}
 
 };
-#endif /* BSTMAP_HPP */
+#endif /* TEMPLATE_BSTMAP_HPP */

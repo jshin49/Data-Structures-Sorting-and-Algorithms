@@ -7,6 +7,8 @@
 #include "heapsort.hpp"
 #include "queue.hpp"
 #include "stack.hpp"
+#include "template_bstmap.hpp"
+
 
 using namespace std;
 
@@ -182,7 +184,7 @@ int main() {
 	cout << endl;
 
 	// BST Test
-	cout << "BST Tests" << endl;
+	cout << "Binary Search Tree Tests" << endl;
 	cout << "Initialization and print: " << endl;
 
 	cout << endl;

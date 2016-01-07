@@ -3,12 +3,11 @@
 #define QUEUE_HPP
 
 #include <vector>
-#include <algorithm>
 
 using namespace std;
 
 class Queue {
-
+protected:
 	class Node {
 	public:
 		// Constructors
@@ -181,6 +180,16 @@ public:
 		}
 		os << "nil <-> head" << endl;
 	}
+
+	/**
+	* \brief Get queue size
+	*/
+	int size() { return size_m; }
+
+	/**
+	* \brief Get head element
+	*/
+	int head() { return head_m->elem(); }
 
 private:
 	// Members

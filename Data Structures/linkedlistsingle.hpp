@@ -3,12 +3,11 @@
 #define LINKEDLISTSINGLE_HPP
 
 #include <vector>
-#include <algorithm>
 
 using namespace std;
 
 class SingleLinkedList {
-
+protected:
 	class Node {
 	public:
 		//Constructors

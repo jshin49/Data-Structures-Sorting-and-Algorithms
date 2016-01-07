@@ -3,12 +3,11 @@
 #define LINKEDLISTDOUBLE_HPP
 
 #include <vector>
-#include <algorithm>
 
 using namespace std;
 
 class DoubleLinkedList {
-
+protected:
 	class Node {
 	public:
 		// Constructors

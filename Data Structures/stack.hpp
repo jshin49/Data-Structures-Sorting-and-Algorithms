@@ -3,12 +3,11 @@
 #define STACK_HPP
 
 #include <vector>
-#include <algorithm>
 
 using namespace std;
 
 class Stack {
-
+protected:
 	class Node {
 	public:
 		//Constructors
@@ -146,11 +145,21 @@ public:
 	void print_stack(std::ostream& os = std::cout) {
 		Node* cur = top_m;
 		while (cur != nil) {
-			os << cur->elem() << endl << "|" << endl << "V" << endl;
+			os << cur->elem() << " -> ";
 			cur = cur->next();
 		}
 		os << "nil" << endl;
 	}
+
+	/**
+	* \brief Get stack size
+	*/
+	int size() { return size_m; }
+
+	/**
+	* \brief Get top element
+	*/
+	int top() { return top_m->elem(); }
 
 private:
 	// Members
