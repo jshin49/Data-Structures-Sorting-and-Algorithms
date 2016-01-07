@@ -8,7 +8,7 @@
 #include "queue.hpp"
 #include "stack.hpp"
 #include "template_bstmap.hpp"
-
+#include "dynamicprogramming.hpp"
 
 using namespace std;
 
@@ -205,6 +205,13 @@ int main() {
 	//heapsort(vec2);
 	//heapsort_desc(test);
 	//heapsort_desc(test2);
+
+	cout << endl;
+
+	// Algorithm Test
+	cout << "Dynamic Programming Tests" << endl;
+	cout << "Fibonacci of 10: " << fibonacci(10) << endl;
+	cout << "Sum of Maximum subarray of vector test1: " << max_sub_array(test1) << endl;
 
 
 	return 0;

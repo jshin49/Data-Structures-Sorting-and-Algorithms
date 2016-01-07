@@ -4,7 +4,7 @@ using namespace std;
 
 int fibonacci(int n) {
 	vector<int> vec;
-	vec.reserve(n);
+	vec.resize(n);
 	vec[0] = 1;
 	if (n > 1) vec[1] = 1;
 
