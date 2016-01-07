@@ -20,14 +20,14 @@ The italicized ones are under construction.
  - **Queues**
  - **Heaps (With Priority Queue Interface included)**
  - **Binary Search Trees (Generic)**
- - Optimal Binary Search Trees
+ - *Optimal Binary Search Trees*
  - **Hash Maps (Generic)**
  - Disjoint Sets
- - Graphs
+ - *Graphs*
 
 # Sorting
 - *Merge sort*
-- *Quick sort*
+- **Quick sort**
 - **Heap sort**
 - Counting sort
 - Bucket sort
@@ -38,8 +38,8 @@ The italicized ones are under construction.
   - *Bubble sort*
 
 # Algorithms
- - Counting Inversions
- - Maximum Subarray
+ - *Counting Inversions*
+ - *Maximum Subarray*
  - Matrix Multiplication
  - Closest Pair 2D
- - Dynamic Programming
+ - *Dynamic Programming*
