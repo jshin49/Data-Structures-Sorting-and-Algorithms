@@ -15,11 +15,6 @@ int fibonacci(int n) {
 	return vec[n - 1];
 }
 
-
-int max(int a, int b) {
-	return b > a ? b : a;
-}
-
 int max_sub_array(vector<int> vec) {
 	// Dynamic Programming O(n)
 

@@ -9,6 +9,8 @@
 #include "stack.hpp"
 #include "template_bstmap.hpp"
 #include "dynamicprogramming.hpp"
+#include "miscellaneous.hpp"
+#include "quicksort.hpp"
 
 using namespace std;
 
@@ -23,7 +25,7 @@ int main() {
 	ifstream infile2("IntegerArray1-10000.txt");
 	vector<int> vec2;
 	vec2.reserve(10000);
-	while (infile >> a)
+	while (infile2 >> a)
 		vec2.push_back(a);
 
 	vector<int> test = { 1, 2, 3, 4, 5 };
@@ -198,6 +200,10 @@ int main() {
 	// Sorting Test
 	cout << "Sorting Tests" << endl;
 	cout << "Initialization and print: " << endl;
+
+	int count = 0; 
+	
+	cout << quicksort(vec2, 0, vec2.size() - 1, count) << endl;
 
 	cout << "Naive Sorts: " << endl;
 
