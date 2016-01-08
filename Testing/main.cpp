@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <fstream>
+
 #include "linkedlistsingle.hpp"
 #include "linkedlistdouble.hpp"
 #include "heap.hpp"
@@ -11,6 +12,7 @@
 #include "dynamicprogramming.hpp"
 #include "miscellaneous.hpp"
 #include "quicksort.hpp"
+#include "graph.hpp"
 
 using namespace std;
 
@@ -194,6 +196,13 @@ int main() {
 	// Hashmap Test
 	cout << "Hashmap Tests" << endl;
 	cout << "Initialization and print: " << endl;
+
+	cout << endl;
+
+	// Graph Test
+	cout << "Directed Graph" << endl;
+
+	Graph graph("SCC.txt", true);
 
 	cout << endl;
 
