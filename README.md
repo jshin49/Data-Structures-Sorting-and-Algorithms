@@ -18,24 +18,28 @@ The italicized ones are under construction.
  - **Singly/Doubly Linked Lists**
  - **Stacks**
  - **Queues**
- - **Heaps (With Priority Queue Interface included)**
+ - **Min/Max Heaps (With Priority Queue Interface included)**
  - **Binary Search Trees (Generic)**
- - *Optimal Binary Search Trees*
+  - *Optimal Binary Search Trees*
+  - Minimum Spanning Trees
  - **Hash Maps (Generic)**
  - Disjoint Sets
  - *Graphs*
+  - Breadth First Search
+  - Depth First Search
+  - Topological Sort
+  - Counting Strong Components
 
 # Sorting
 - *Merge sort*
 - **Quick sort**
 - **Heap sort**
-- Counting sort
-- Bucket sort
-- Topological sort
 - *Naive Sorting*
   - *Insertion sort*
   - *Selection sort*
   - *Bubble sort*
+- Counting sort
+- Bucket sort
 
 # Algorithms
  - *Counting Inversions*
