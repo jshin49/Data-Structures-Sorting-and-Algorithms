@@ -56,7 +56,7 @@ public:
 	}
 	~Graph(){}
 
-	vector<int>& operator[] (const int i) { return map_m[i]; }
+	vector<int>& operator[] (const int i) { return map_m.find(i)->second; }
 
 	int BFS(int elem) {
 
