@@ -4,43 +4,34 @@
 
 #include <vector>
 #include <fstream>
+#include <unordered_map>
 
 using namespace std;
 
 class Graph {
 protected:
 
-	class Node {
-	public:
-		//Constructors
-		Node(){}
-		Node(Node* next) : next_m(next){}
-		Node(int elem, Node* next) : elem_m(elem), next_m(next){}
+	struct Node {
+		Node() {}
+		Node(int data, bool marked, bool explored = false) {
+			this->data = data;
+			this->marked = marked;
+			this->explored = explored;
+		}
 
-		// Getter
-		Node* next() { return next_m; }
-		int elem() { return elem_m; }
-
-		// Setter
-		void set_next(Node* next) { next_m = next; }
-		void set_elem(int elem) { elem_m = elem; }
-		void set_explored() { is_explored = true; }
-
-	private:
-		Node* next_m;
-		int elem_m;
-		bool is_explored = false;
+		int data;
+		bool marked = false;
+		bool explored = false;
 	};
-
-	// Sentinel Node
-	class Nil : public Node {};
 
 public:
 	Graph() {}
-	Graph(string filename, bool direction = false) {
+	Graph(string filename, int input_size, bool direction = false) {
 		is_directed = direction;
 		ifstream infile(filename);
-		int first, second;
+		int key, value;
+		map_m.reserve(input_size);
+
 		int i = 0;
 		while (!infile.eof()) {
 			if (i % 2 == 1) {
@@ -48,21 +39,36 @@ public:
 				continue;
 			}
 			else {
-				infile >> first;
-				infile >> second;
-				Node edge(first, new Node(second, nil));
-				vector_m.push_back(edge);
+				infile >> key;
+				infile >> value;
+
+				if (is_directed && map_m.find(value) != map_m.end()) {
+					auto it = find(map_m[value].begin(), map_m[value].end(), key);
+					if (it != map_m[value].end()) {
+						++i;
+						continue;
+					}
+				}
+				map_m[key].push_back(value);
 				++i;
 			}
 		}
 	}
 	~Graph(){}
 
+	vector<int>& operator[] (const int i) { return map_m[i]; }
+
+	int BFS(int elem) {
+
+	}
+
+	int DFS(int elem) {
+
+	}
 
 private:
 	// Members
-	vector<Node> vector_m;
-	Nil* nil;
+	unordered_map<int, vector<int>> map_m;
 	bool is_directed;
 
 };

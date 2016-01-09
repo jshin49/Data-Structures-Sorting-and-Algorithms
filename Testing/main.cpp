@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <fstream>
+#include <string>
 
 #include "linkedlistsingle.hpp"
 #include "linkedlistdouble.hpp"
@@ -202,7 +203,7 @@ int main() {
 	// Graph Test
 	cout << "Directed Graph" << endl;
 
-	Graph graph("SCC.txt", true);
+	Graph graph("SCC.txt", 875714, true);
 
 	cout << endl;
 
